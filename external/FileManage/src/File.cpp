@@ -11,7 +11,7 @@ std::string File::GetPath()
     return m_filePath.GetPath();
 }
 
-void File::CreateFile()
+void File::Create()
 {
     std::string path = m_filePath.GetPath();
 
@@ -22,7 +22,7 @@ void File::CreateFile()
     }
 }
 
-void File::DeleteFile()
+void File::Delete()
 {
     std::string path = m_filePath.GetPath();
 

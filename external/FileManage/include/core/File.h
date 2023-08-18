@@ -33,13 +33,13 @@ namespace FileManage
          * @brief Creates a new File if it doesn't exists
          * @return (void)
          */
-        void CreateFile();
+        void Create();
 
         /**
          * @brief Deletes a File if it exists
          * @return (void)
          */
-        void DeleteFile();
+        void Delete();
 
         /**
          * @brief Reads a file contents
