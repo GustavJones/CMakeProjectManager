@@ -1,0 +1,9 @@
+C:/CXXLibs/FileManage/build/CMakeFiles/FileManage.dir
+C:/CXXLibs/FileManage/build/CMakeFiles/edit_cache.dir
+C:/CXXLibs/FileManage/build/CMakeFiles/rebuild_cache.dir
+C:/CXXLibs/FileManage/build/tests/CMakeFiles/test1.dir
+C:/CXXLibs/FileManage/build/tests/CMakeFiles/test2.dir
+C:/CXXLibs/FileManage/build/tests/CMakeFiles/test3.dir
+C:/CXXLibs/FileManage/build/tests/CMakeFiles/test4.dir
+C:/CXXLibs/FileManage/build/tests/CMakeFiles/edit_cache.dir
+C:/CXXLibs/FileManage/build/tests/CMakeFiles/rebuild_cache.dir

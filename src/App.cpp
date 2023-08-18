@@ -4,7 +4,7 @@
 
 bool App::OnInit()
 {
-    MainFrame *mainFrame = new MainFrame("Random Block Placer");
+    MainFrame *mainFrame = new MainFrame("CMake Project Manager");
     mainFrame->Show(true);
     return true;
 }
