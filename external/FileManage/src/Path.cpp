@@ -4,6 +4,8 @@ using namespace FileManage;
 
 Path::Path(std::string __path) : m_Path(__path) {}
 
+Path::Path(const char *__path) : m_Path(__path) {}
+
 std::string Path::GetPath()
 {
     return m_Path;

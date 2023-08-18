@@ -21,6 +21,12 @@ namespace FileManage
         Path(std::string __path);
 
         /**
+         * @brief Create a new Path object
+         * @param __path const char * with "/" seperator
+         */
+        Path(const char *__path);
+
+        /**
          * @brief Returns the stored path string
          * @return std::string path
          */
