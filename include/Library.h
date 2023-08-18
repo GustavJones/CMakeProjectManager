@@ -1,18 +1,19 @@
 #pragma once
-#include <wx/wx.h>
+#include <string>
+#include "FileManage.h"
 
 class Library
 {
 private:
-    wxString m_name;
-    wxString m_path;
+    std::string m_name;
+    std::string m_path;
 
 public:
-    Library(wxString name, wxString path);
+    Library(std::string name, std::string path);
 
-    wxString GetName();
-    wxString GetPath();
+    std::string GetName();
+    std::string GetPath();
 
-    void SetName(wxString name);
-    void SetPath(wxString path);
+    void SetName(std::string name);
+    void SetPath(std::string path);
 };
