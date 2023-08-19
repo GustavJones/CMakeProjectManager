@@ -6,7 +6,7 @@ MainFrame::MainFrame(const wxString &title) : wxFrame(nullptr, wxID_ANY, title)
 {
     const unsigned int spacerSize = 10;
 
-    outputFile = new FileManage::File("CMakeLists.txt");
+    outputFile = new FileManage::File("output/CMakeLists.txt");
     outputFile->Delete();
 
     RefreshClientSize();
@@ -109,6 +109,7 @@ MainFrame::MainFrame(const wxString &title) : wxFrame(nullptr, wxID_ANY, title)
     mainSizer->Add(inputOutputSizer, 10, wxEXPAND);
 
     // Frame Setup
+    titleText->SetFocus();
     this->SetSizerAndFit(mainSizer);
     this->SetClientSize(1000, 800);
 }
@@ -142,6 +143,7 @@ void MainFrame::AddProject(wxCommandEvent &evt)
     else
     {
         wxMessageBox("Enter Project information", "Warning!", wxICON_ERROR);
+        projName->SetFocus();
     }
 }
 
@@ -165,6 +167,7 @@ void MainFrame::AddInclude(wxCommandEvent &evt)
     else
     {
         wxMessageBox("Enter Include information", "Warning!", wxICON_ERROR);
+        includePath->SetFocus();
     }
 }
 
@@ -189,6 +192,7 @@ void MainFrame::AddLibrary(wxCommandEvent &evt)
     else
     {
         wxMessageBox("Enter Library information", "Warning!", wxICON_ERROR);
+        libName->SetFocus();
     }
 }
 
