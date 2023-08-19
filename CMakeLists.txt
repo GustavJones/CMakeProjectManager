@@ -13,3 +13,5 @@ target_include_directories(${PROJECT_NAME} PRIVATE "external/wxWidgets/lib/gcc_x
 target_include_directories(${PROJECT_NAME} PRIVATE "external/FileManage/include")
 target_link_libraries(${PROJECT_NAME} PRIVATE ${WXWIDGETSLIB})
 target_link_libraries(${PROJECT_NAME} PRIVATE ${FILEMANAGELIB})
+
+target_link_options(${PROJECT_NAME} PRIVATE -mwindows)
