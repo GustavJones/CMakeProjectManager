@@ -1,5 +1,6 @@
 #pragma once
 #include "Path.h"
+#include "Folder.h"
 #include <iostream>
 #include <fstream>
 #include <filesystem>

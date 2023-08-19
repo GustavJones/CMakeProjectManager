@@ -15,6 +15,11 @@ void File::Create()
 {
     std::string path = m_filePath.GetPath();
 
+    if (!std::filesystem::exists((m_filePath.GetDirectory()).GetPath()))
+    {
+        FileManage::Folder(m_filePath.GetDirectory()).CreateFolder();
+    }
+
     if (!std::filesystem::exists(path))
     {
         std::ofstream file(path);
