@@ -7,7 +7,6 @@ MainFrame::MainFrame(const wxString &title) : wxFrame(nullptr, wxID_ANY, title)
     const unsigned int spacerSize = 10;
 
     outputFile = new FileManage::File("output/CMakeLists.txt");
-    // outputFile->Delete();
 
     RefreshClientSize();
     this->SetBackgroundColour(wxColour(255, 255, 255));
@@ -30,6 +29,8 @@ MainFrame::MainFrame(const wxString &title) : wxFrame(nullptr, wxID_ANY, title)
     wxStaticText *titleText = new wxStaticText(this, wxID_ANY, "CMake Project Manager");
 
     // Input Controls
+    wxButton *openDir = new wxButton(inputPanel, wxID_ANY, "Open Project Folder");
+
     wxStaticText *projText = new wxStaticText(inputPanel, wxID_ANY, "Project Details");
     projName = new wxTextCtrl(inputPanel, wxID_ANY, "", wxDefaultPosition, wxDefaultSize, wxTE_CENTRE);
     projVersion = new wxTextCtrl(inputPanel, wxID_ANY, "", wxDefaultPosition, wxDefaultSize, wxTE_CENTRE);
@@ -49,6 +50,9 @@ MainFrame::MainFrame(const wxString &title) : wxFrame(nullptr, wxID_ANY, title)
     // outputPanel->SetBackgroundColour(wxColour(240, 240, 240));
 
     titleText->SetFont(titleFont);
+
+    openDir->SetFont(subFont);
+    openDir->Bind(wxEVT_BUTTON, &OpenDir, this);
 
     projText->SetFont(subFont);
     projName->SetHint("Project Name: ");
@@ -83,24 +87,26 @@ MainFrame::MainFrame(const wxString &title) : wxFrame(nullptr, wxID_ANY, title)
     // inputOutputSizer->Add(outputPanel, 1, wxEXPAND | wxALL, 10);
 
     // Input Panel
+    inputSizer->Add(openDir, 0, wxALIGN_CENTER_HORIZONTAL | wxALL, 20);
+
     inputSizer->Add(projText, 0.2, wxEXPAND | wxALL, 10);
     inputSizer->AddSpacer(spacerSize);
-    inputSizer->Add(projName, 1, wxEXPAND | wxLEFT | wxRIGHT, 30);
+    inputSizer->Add(projName, 0, wxEXPAND | wxLEFT | wxRIGHT, 30);
     inputSizer->AddSpacer(spacerSize);
-    inputSizer->Add(projVersion, 1, wxEXPAND | wxLEFT | wxRIGHT, 30);
+    inputSizer->Add(projVersion, 0, wxEXPAND | wxLEFT | wxRIGHT, 30);
     inputSizer->Add(projButton, 0, wxALIGN_CENTER_HORIZONTAL | wxALL, 20);
 
     inputSizer->Add(includeText, 0.2, wxEXPAND | wxALL, 10);
     inputSizer->AddSpacer(spacerSize);
-    inputSizer->Add(includePath, 1, wxEXPAND | wxLEFT | wxRIGHT, 30);
+    inputSizer->Add(includePath, 0, wxEXPAND | wxLEFT | wxRIGHT, 30);
     inputSizer->AddSpacer(spacerSize);
     inputSizer->Add(includeButton, 0, wxALIGN_CENTER_HORIZONTAL | wxALL, 20);
 
     inputSizer->Add(libText, 0.2, wxEXPAND | wxALL, 10);
     inputSizer->AddSpacer(spacerSize);
-    inputSizer->Add(libName, 1, wxEXPAND | wxLEFT | wxRIGHT, 30);
+    inputSizer->Add(libName, 0, wxEXPAND | wxLEFT | wxRIGHT, 30);
     inputSizer->AddSpacer(spacerSize);
-    inputSizer->Add(libPath, 1, wxEXPAND | wxLEFT | wxRIGHT, 30);
+    inputSizer->Add(libPath, 0, wxEXPAND | wxLEFT | wxRIGHT, 30);
     inputSizer->AddSpacer(spacerSize);
     inputSizer->Add(libButton, 0, wxALIGN_CENTER_HORIZONTAL | wxALL, 20);
 
@@ -111,13 +117,22 @@ MainFrame::MainFrame(const wxString &title) : wxFrame(nullptr, wxID_ANY, title)
     // Frame Setup
     titleText->SetFocus();
     this->SetSizerAndFit(mainSizer);
-    this->SetClientSize(1000, 800);
+    this->SetClientSize(800, 600);
 }
 
 wxSize MainFrame::RefreshClientSize()
 {
     m_clientSize = this->GetClientSize();
     return m_clientSize;
+}
+
+void MainFrame::OpenDir(wxCommandEvent &evt)
+{
+    openDirDialog = new wxDirDialog(this, "Open a directory", "output");
+    openDirDialog->ShowModal();
+
+    outputFile = new FileManage::File((std::string)(openDirDialog->GetPath() + "/CMakeLists.txt"));
+    outputFile->Create();
 }
 
 void MainFrame::AddProject(wxCommandEvent &evt)
