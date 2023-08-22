@@ -7,7 +7,7 @@ file(GLOB SOURCES "src/*.cpp")
 file(GLOB INCLUDES "include/*.h")
 file(GLOB FILEMANAGELIB "external/FileManage/build/libFileManage.a")
 
-add_executable(${PROJECT_NAME} ${SOURCES} ${INCLUDES})
+add_executable(${PROJECT_NAME} ${SOURCES} ${INCLUDES} external/wxWidgets/include/wx/msw/wx.rc)
 
 # Include Dirs
 target_include_directories(${PROJECT_NAME} PRIVATE "include")
