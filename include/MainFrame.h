@@ -14,10 +14,12 @@ private:
     wxTextCtrl *libPath;
 
     FileManage::File *outputFile;
+    wxDirDialog *openDirDialog;
 
 public:
     MainFrame(const wxString &title);
     wxSize RefreshClientSize();
+    void OpenDir(wxCommandEvent &evt);
     void AddProject(wxCommandEvent &evt);
     void AddInclude(wxCommandEvent &evt);
     void AddLibrary(wxCommandEvent &evt);
