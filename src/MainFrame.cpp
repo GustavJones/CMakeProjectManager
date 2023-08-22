@@ -7,7 +7,7 @@ MainFrame::MainFrame(const wxString &title) : wxFrame(nullptr, wxID_ANY, title)
     const unsigned int spacerSize = 10;
 
     outputFile = new FileManage::File("output/CMakeLists.txt");
-    outputFile->Delete();
+    // outputFile->Delete();
 
     RefreshClientSize();
     this->SetBackgroundColour(wxColour(255, 255, 255));

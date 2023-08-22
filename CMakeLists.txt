@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.5)
-project(CMakeProjectManager VERSION 0.1)
+project(CMakeProjectManager VERSION 1.0)
 
 add_subdirectory(external)
 
