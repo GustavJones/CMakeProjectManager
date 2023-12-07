@@ -12,7 +12,7 @@ add_executable(${PROJECT_NAME} ${SOURCES} ${INCLUDES} external/wxWidgets/include
 # Include Dirs
 target_include_directories(${PROJECT_NAME} PRIVATE "include")
 target_include_directories(${PROJECT_NAME} PRIVATE "external/wxWidgets/include")
-target_include_directories(${PROJECT_NAME} PRIVATE "build_${CMAKE_BUILD_TYPE}/external/wxWidgets/lib/gcc_x64_dll/mswu")
+target_include_directories(${PROJECT_NAME} PRIVATE "${CMAKE_BINARY_DIR}/external/wxWidgets/lib/gcc_x64_dll/mswu")
 target_include_directories(${PROJECT_NAME} PRIVATE "external/FileManage/include")
 
 # Lib Linking
